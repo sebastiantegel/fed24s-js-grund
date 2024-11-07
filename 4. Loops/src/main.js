@@ -61,3 +61,31 @@ for (let i = 0; i < name.length; i++) {
 const pTag = document.createElement("p");
 pTag.innerHTML = newName;
 theMainDiv.appendChild(pTag);
+
+// Pnr
+
+const getCtrl = () => {
+  const pnr = document.getElementById("ctrl").value;
+  let sum = 0;
+
+  for (let i = 0; i < pnr.length; i++) {
+    let t = +pnr[i];
+
+    if (i % 2 === 0) {
+      t *= 2;
+    }
+
+    if (t >= 10) {
+      sum += 1 + (t % 10);
+    } else {
+      sum += t;
+    }
+  }
+
+  const ctrl = 10 - (sum % 10);
+
+  console.log(pnr + ctrl.toString());
+  document.getElementById("result").innerHTML = pnr + ctrl.toString();
+};
+
+document.getElementById("calc").addEventListener("click", getCtrl);
