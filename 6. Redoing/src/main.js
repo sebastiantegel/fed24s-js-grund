@@ -46,3 +46,27 @@ document.getElementById("calc").addEventListener("click", () => {
 
   document.getElementById("result").innerHTML = completePnrNumber;
 });
+
+const ul = document.createElement("ul");
+document.getElementById("app").appendChild(ul);
+
+const numbers = [1, 1, 2, 3, 5, 8];
+const createHtml = () => {
+  ul.innerHTML = "";
+
+  for (let i = 0; i < numbers.length; i++) {
+    const li = document.createElement("li");
+
+    li.addEventListener("click", () => {
+      // console.log("Du klickade på en li", numbers[i]);
+      numbers.splice(i, 1);
+      console.log(numbers);
+      createHtml();
+    });
+    li.innerHTML = numbers[i];
+
+    ul.appendChild(li);
+  }
+};
+
+createHtml();
