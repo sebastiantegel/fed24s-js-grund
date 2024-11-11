@@ -1,16 +1,5 @@
 import "./style.css";
-
-class Person {
-  name;
-  age;
-  isMarried;
-
-  constructor(name, age, isMarried) {
-    this.name = name;
-    this.age = age;
-    this.isMarried = isMarried;
-  }
-}
+import { Person } from "./models/Person";
 
 const wife = new Person("Hanna", 44, true);
 // wife.name = "Hanna";
