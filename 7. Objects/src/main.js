@@ -1,5 +1,6 @@
 import "./style.css";
 import { Person } from "./models/Person";
+import { Car } from "./models/Car";
 
 const wife = new Person("Hanna", 44, true);
 // wife.name = "Hanna";
@@ -39,3 +40,20 @@ for (let i = 0; i < family.length; i++) {
 
   document.getElementById("app").appendChild(container);
 }
+
+const volvo = new Car("Volvo", "V90", "Brown");
+const bmw = new Car("BMW", "i5", "Blue");
+const audi = new Car("Audi", "A8", "Silver");
+
+const cars = [volvo, bmw, audi];
+
+cars.forEach((car) => {
+  const carContainer = document.createElement("div");
+  carContainer.innerHTML = car.manufacturer;
+
+  carContainer.addEventListener("click", () => {
+    console.log("Du klickade på:", car);
+  });
+
+  document.getElementById("app").appendChild(carContainer);
+});
