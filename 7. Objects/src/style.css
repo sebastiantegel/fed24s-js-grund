@@ -41,6 +41,9 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .logo {
@@ -94,4 +97,11 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.person {
+  width: calc(100% / 3);
+  height: 150px;
+  border: 1px solid grey;
+  padding: 1rem;
 }
