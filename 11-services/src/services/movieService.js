@@ -1,26 +1,16 @@
 import { Movie } from "../models/movie";
+import { get } from "./serviceBase";
 
-const BASE_URL = "http://omdbapi.com/?apikey=416ed51a&";
+const BASE_URL = `http://omdbapi.com/?apikey=${import.meta.env.VITE_API_KEY}&`;
 
 export const getMovies = async (searchText) => {
-  const response = await fetch(`${BASE_URL}s=${searchText}`);
-  const omdbResponse = await response.json();
-
-  //   console.log("omdbResponse", omdbResponse.Search);
+  const omdbResponse = await get(`${BASE_URL}s=${searchText}`);
 
   return omdbResponse.Search.map(
     (movie) => new Movie(movie.Title, movie.Poster, movie.imdbID)
   );
-
-  // [{Title: "", Poster: ""}, {...}, ...]
-  //  -> map ->
-  // [{title: "", imageUrl: ""}, {...}, ...]
 };
 
 export const getMovieById = async (imdbID) => {
-  const response = await fetch(`${BASE_URL}i=${imdbID}`);
-
-  const movie = await response.json();
-
-  return movie;
+  return await get(`${BASE_URL}i=${imdbID}`);
 };

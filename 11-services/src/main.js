@@ -6,6 +6,7 @@ searchForm.addEventListener("submit", async (e) => {
   const search = searchInput.value;
   if (search) {
     const movies = await getMovies(search); // [{...}, {...}, ...]
+    localStorage.setItem("movies", JSON.stringify(movies));
     createHtml(movies);
     searchForm.reset();
   }
@@ -66,3 +67,5 @@ function createHtmlForMovie(movie) {
   plot.textContent = movie.Plot;
   modalBody.appendChild(plot);
 }
+
+createHtml(JSON.parse(localStorage.getItem("movies") || "[]"));
