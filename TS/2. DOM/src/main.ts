@@ -1,5 +1,5 @@
 import { Todo } from "./models/Todo";
-import "./style.css";
+import "./style.scss";
 
 // const theForm = document.getElementById("todoForm");
 // if(theForm) {
