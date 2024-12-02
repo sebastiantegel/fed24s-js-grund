@@ -18,7 +18,7 @@ document.getElementById("todoForm")?.addEventListener("submit", (e) => {
   }
 });
 
-const todo = new Todo("Lorem");
+const todo = new Todo("Ipsum");
 const todos: Todo[] = [todo];
 
 const ul = document.getElementById("todos");
